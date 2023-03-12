@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Pacifico&display=swap');
+*{
+    font-family: 'JetBrains Mono';
+}
+.form-control:focus{
+    box-shadow: none !important;
+}
+
+.form-control:focus-visible{
+    box-shadow: none !important;
+}

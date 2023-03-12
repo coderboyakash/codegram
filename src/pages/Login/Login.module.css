@@ -1,0 +1,126 @@
+.login_wrapper{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    padding: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 100px !important;
+    
+}
+
+.login_left_section{
+    background: #773939;
+    height: 590px;
+    background: url('https://static.cdninstagram.com/images/instagram/xig/homepage/phones/home-phones.png?__makehaste_cache_breaker=HOgRclNOosk');
+    
+}
+
+.login_right_section{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height: 590px;
+    padding: 0;
+    flex-direction: column;
+}
+
+.login_left_section img{
+    height: 540px;
+    width: 250px;
+    margin-top: 28px;
+    margin-left: 145px;
+}
+
+.login_form{
+    height: 450px;
+    width: 350px;
+    border: 1px solid #aaa;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 3px;
+}
+
+.sign_up_section{
+    width: 350px;
+    height: 80px;
+    border: 1px solid #aaa;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+.sign_up_section a{
+    text-decoration: none;
+}
+
+.login_form h2{
+    font-family: 'Pacifico', cursive;
+    margin: 50px 0px !important;
+}
+
+.login_form form{
+    text-align: center;
+}
+
+.form_group{
+    position: relative;
+}
+
+.login_form input{
+    width: 250px;
+    margin-top: 10px;
+    height: 50px;
+    padding-top: 25px;
+}
+
+.login_form label{
+    position: absolute;
+    font-size: 12px;
+    left: 15px;
+    top: 5px;
+    color: #aaa;
+}
+
+.submit_btn button{
+    margin-top: 10px;
+    width: 250px !important;
+}
+
+.divider{
+    margin-top: 30px;
+    width: 250px;
+    position: relative;
+    border-bottom: 1px solid #aaa;
+}
+
+.divider span{
+    position: absolute;
+    top: -10px;
+    padding: 0px 20px;
+    background: #fff;
+    transform: translate(-50%);
+    font-size: 15px;
+    color: #aaa;
+}
+
+.login_with_facebook{
+    color: rgb(0, 55, 107);
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.forgot_password{
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.forgot_password a{
+    text-decoration: none;
+    color: rgb(0, 55, 107);
+}
