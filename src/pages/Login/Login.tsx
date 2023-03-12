@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import styles from './Login.module.css'
 import { AiFillFacebook } from 'react-icons/ai'
