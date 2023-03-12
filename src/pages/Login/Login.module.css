@@ -11,16 +11,20 @@
 }
 
 .login_left_section{
-    background: #773939;
     height: 590px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login_poster{
     background: url('https://static.cdninstagram.com/images/instagram/xig/homepage/phones/home-phones.png?__makehaste_cache_breaker=HOgRclNOosk');
-    
+    background-repeat: no-repeat;
+    width: 450px;
 }
 
 .login_right_section{
     display: flex;
-    align-items: center;
-    justify-items: center;
+    align-items: flex-start;
     height: 590px;
     padding: 0;
     flex-direction: column;
@@ -30,7 +34,7 @@
     height: 540px;
     width: 250px;
     margin-top: 28px;
-    margin-left: 145px;
+    margin-left: 158px;
 }
 
 .login_form{
