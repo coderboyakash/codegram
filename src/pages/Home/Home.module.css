@@ -1,0 +1,15 @@
+.home_wrapper{
+    width: 100%;
+    display: flex;
+}
+.home_wrapper main{
+    width: 100%;
+    background: #1c1e21;
+}
+
+.posts_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
