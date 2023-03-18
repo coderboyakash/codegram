@@ -4,6 +4,7 @@ import helmet from 'helmet'
 import morgan from 'morgan'
 import { createServer } from 'http'
 import { DEVELOPMENT, PORT } from './utils/constants'
+import AuthRouter from './routes/AuthRoutes'
 const app = express()
 app.use(helmet())
 app.use(
@@ -19,9 +20,7 @@ app.use(
     })
 )
 
-app.use('/', (req, res, next) => {
-    res.json({ message: 'Working' })
-})
+app.use('/auth', AuthRouter);
 
 const httpServer = createServer(app)
 httpServer.listen(PORT, () => {
