@@ -71,25 +71,6 @@
     text-align: center;
 }
 
-.form_group {
-    position: relative;
-}
-
-.login_form input {
-    width: 250px;
-    margin-top: 10px;
-    height: 50px;
-    padding-top: 25px;
-}
-
-.login_form label {
-    position: absolute;
-    font-size: 12px;
-    left: 15px;
-    top: 5px;
-    color: #aaa;
-}
-
 .submit_btn button {
     margin-top: 10px;
     width: 250px !important;

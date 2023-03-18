@@ -2,6 +2,8 @@ import { FC } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import styles from './Login.module.css'
 import { AiFillFacebook } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
+import FormGroup from '../../components/FormGroup/FormGroup'
 
 const Login: FC = () => {
     return (
@@ -16,23 +18,16 @@ const Login: FC = () => {
                     <div className={styles.login_form}>
                         <h2>CodeGram!!</h2>
                         <form action="">
-                            <Form.Group className={styles.form_group}>
-                                <label htmlFor="email">
-                                    Phone Number, username or email
-                                </label>
-                                <input
-                                    type="text"
-                                    id="email"
-                                    className="form-control"
-                                />
-                            </Form.Group>
-                            <Form.Group className={styles.form_group}>
-                                <label htmlFor="">Password</label>
-                                <input
-                                    type="password"
-                                    className="form-control"
-                                />
-                            </Form.Group>
+                            <FormGroup
+                                labelText='Phone Number, username or email'
+                                type='text'
+                                name='email'
+                            />
+                            <FormGroup
+                                labelText='Password'
+                                type='password'
+                                name='password'
+                            />
                             <Form.Group className={styles.submit_btn}>
                                 <Button>Log in</Button>
                             </Form.Group>
@@ -52,7 +47,7 @@ const Login: FC = () => {
                         Don't have an account?
                         <strong>
                             &nbsp;
-                            <a href="">Sign up</a>
+                            <Link to={'/signup'}>Sign up</Link>
                         </strong>
                     </div>
                 </div>

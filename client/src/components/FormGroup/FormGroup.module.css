@@ -1,0 +1,37 @@
+.form_group {
+    position: relative;
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    margin-top: 10px;
+    height: 50px;
+}
+
+.input_focus {
+    width: 100%;
+    margin-top: 10px;
+    height: 50px;
+    padding-top: 25px !important;
+}
+
+.label {
+    position: absolute;
+    font-size: 13px;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    cursor: text;
+    transition: 0.2s all;
+}
+
+.label_focus {
+    position: absolute;
+    font-size: 12px;
+    left: 15px;
+    top: 5px;
+    color: #aaa;
+    transition: 0.2s all;
+}
