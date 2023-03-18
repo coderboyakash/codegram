@@ -19,14 +19,14 @@ const Login: FC = () => {
                         <h2>CodeGram!!</h2>
                         <form action="">
                             <FormGroup
-                                labelText='Phone Number, username or email'
-                                type='text'
-                                name='email'
+                                labelText="Phone Number, username or email"
+                                type="text"
+                                name="email"
                             />
                             <FormGroup
-                                labelText='Password'
-                                type='password'
-                                name='password'
+                                labelText="Password"
+                                type="password"
+                                name="password"
                             />
                             <Form.Group className={styles.submit_btn}>
                                 <Button>Log in</Button>

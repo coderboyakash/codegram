@@ -24,24 +24,24 @@ const Signup: FC = () => {
                         </div>
                         <form action="">
                             <FormGroup
-                                labelText='Phone Number, username or email'
-                                type='text'
-                                name='email'
+                                labelText="Phone Number, username or email"
+                                type="text"
+                                name="email"
                             />
                             <FormGroup
-                                labelText='Full Name'
-                                type='text'
-                                name='name'
+                                labelText="Full Name"
+                                type="text"
+                                name="name"
                             />
                             <FormGroup
-                                labelText='Username'
-                                type='text'
-                                name='username'
+                                labelText="Username"
+                                type="text"
+                                name="username"
                             />
                             <FormGroup
-                                labelText='Password'
-                                type='password'
-                                name='password'
+                                labelText="Password"
+                                type="password"
+                                name="password"
                             />
                             <Form.Group className={styles.submit_btn}>
                                 <Button>Sign up</Button>
@@ -54,7 +54,8 @@ const Signup: FC = () => {
                             <p className={styles.t_c}>
                                 By signing up, you agree to our
                                 <a href="">
-                                    &nbsp;Terms, Privacy Policy and Cookies Policy.
+                                    &nbsp;Terms, Privacy Policy and Cookies
+                                    Policy.
                                 </a>
                             </p>
                         </form>
