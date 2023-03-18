@@ -1,7 +1,8 @@
-import { Login } from "../controller/AuthController"
+import { Signin, Signup } from "../controller/AuthController"
 
 const AuthRouter = require('express').Router()
 
-AuthRouter.post('/login', Login)
+AuthRouter.post('/signin', Signin)
+AuthRouter.post('/signup', Signup)
 
 export default AuthRouter

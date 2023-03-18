@@ -6,6 +6,11 @@ import { Link } from 'react-router-dom'
 import FormGroup from '../../components/FormGroup/FormGroup'
 
 const Login: FC = () => {
+
+    const handleLogin = () => {
+
+    }
+
     return (
         <Row className={styles.login_wrapper}>
             <Col lg={6} md={6} sm={6} className={styles.login_left_section}>
@@ -17,8 +22,8 @@ const Login: FC = () => {
                 <div>
                     <div className={styles.login_form}>
                         <h2>CodeGram!!</h2>
-                        <form action="">
-                            <FormGroup
+                        <form onSubmit={handleLogin}>
+                            {/* <FormGroup
                                 labelText="Phone Number, username or email"
                                 type="text"
                                 name="email"
@@ -27,7 +32,7 @@ const Login: FC = () => {
                                 labelText="Password"
                                 type="password"
                                 name="password"
-                            />
+                            /> */}
                             <Form.Group className={styles.submit_btn}>
                                 <Button>Log in</Button>
                             </Form.Group>
