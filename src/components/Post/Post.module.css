@@ -1,28 +1,29 @@
-.post_card{
+.post_card {
     border: 1px solid #695c5c;
     width: 500px;
-    height: 930px;
+    height: 900px;
     background: #000;
     border-radius: 10px;
     margin-top: 10px;
+    position: relative;
 }
 
-.profile_info{
+.profile_info {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
 }
 
-.profile_info p{
+.profile_info p {
     margin: 0 !important;
 }
 
-.profile_action{
+.profile_action {
     cursor: pointer;
 }
 
-.post_card_header{
+.post_card_header {
     color: #fff;
     font-size: 14px;
     display: flex;
@@ -33,86 +34,127 @@
     margin-right: 15px;
 }
 
-.post_profile_image{
+.post_profile_image {
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
 
-.post_images img{
-    width: 100%;
-    height: 100%;
-    margin-top: 5px;
+.post_slider {
+    width: 498px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
 }
 
-.post_reaction{
+.post_images {
+    width: 1500px;
+    background-color: pink;
+    height: 600px;
+    clear: both;
+    position: relative;
+    transition: 0.4s ease-in-out;
+}
+.post_images img {
+    width: 500px;
+    height: 600px;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+
+.caret_container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+    color: #fff;
+    width: 500px;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: 0.4s ease-in-out;
+}
+
+.caret {
+    cursor: pointer;
+}
+
+.post_reaction {
     color: #fff;
     padding-top: 10px;
     display: flex;
     justify-content: space-between;
 }
 
-.post_reaction_left{
+.post_reaction_left {
     width: 130px;
     display: flex;
     justify-content: space-evenly;
 }
 
-.post_reaction_right{
+.post_reaction_right {
     margin-right: 10px;
 }
 
-.post_description{
+.post_description {
     color: #fff;
     margin-left: 15px;
     font-size: 12px;
 }
 
-.post_description p{
+.post_description p {
     margin-bottom: 5px !important;
 }
 
-.post_likes{
+.post_likes {
     margin-top: 10px;
     font-weight: 600;
 }
 
-.post_quote{
+.post_quote {
     font-size: 14px;
 }
 
-.post_comments{
+.post_comments {
     font-size: 14px;
     font-weight: 600;
     color: #695c5c;
 }
 
-.recent_comments{
+.recent_comments {
     display: flex;
     justify-content: space-between;
 }
 
-.post_time{
+.post_time {
     font-size: 12px;
     font-weight: 300;
     color: #695c5c;
 }
 
-.comment_input{
+.comment_input {
     border-top: 1px solid #695c5c;
     color: #fff;
     height: 50px;
     position: relative;
 }
 
-.comment_smile{
+.comment_smile {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 15px;
+    cursor: pointer;
 }
 
-.comment_input input{
+.comment_input input {
     padding-top: 10px;
     height: 50px;
     background: #000;
@@ -125,7 +167,7 @@
     border-radius: 10px;
 }
 
-.send_comment{
+.send_comment {
     position: absolute;
     right: 10px;
     top: 50%;
@@ -133,7 +175,54 @@
     cursor: pointer;
 }
 
-.comment_input input:focus-visible{
+.comment_input input:focus-visible {
     border: none;
     outline: none;
+}
+
+.action_modal_dialog {
+    width: 400px !important;
+}
+
+.action_modal {
+    background: transparent !important;
+}
+
+.action_modal_body {
+    background: #262626;
+    color: #fff;
+    padding: 0 !important;
+    border-radius: 15px;
+}
+
+.actions {
+    list-style: none;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    background: transparent;
+}
+
+.actions li:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.actions li {
+    cursor: pointer;
+    padding: 10px;
+    border-top: 1px solid #55535342;
+    text-align: center;
+}
+
+.actions li:nth-child(1) {
+    border-top: unset !important;
+}
+
+.wran {
+    color: red;
+}
+
+.emoji_picker {
+    position: absolute;
+    z-index: 999;
+    bottom: 50px;
 }

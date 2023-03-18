@@ -1,4 +1,4 @@
-.statuses_wrapper{
+.statuses_wrapper {
     height: 110px;
     margin-top: 30px;
     position: relative;
@@ -7,7 +7,7 @@
     overflow: hidden;
     background: #000;
 }
-.statuses{
+.statuses {
     width: 500px;
     border-radius: 10px;
     color: #fff;
@@ -15,14 +15,14 @@
     transition: 0.4s ease-in-out;
 }
 
-.status{
+.status {
     display: flex;
     flex-direction: column;
     padding: 10px 8px 10px 10px;
     cursor: pointer;
 }
 
-.status_name{
+.status_name {
     width: 65px;
     text-align: center;
     font-size: 12px;
@@ -32,7 +32,7 @@
     text-overflow: ellipsis;
 }
 
-.status_image{
+.status_image {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,14 +42,14 @@
     background: linear-gradient(to right, red, purple);
 }
 
-.status_image img{
+.status_image img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     transform: translateY(-1%);
 }
 
-.left_caret{
+.left_caret {
     position: absolute;
     top: 40%;
     transform: translateY(-50%);
@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 
-.right_caret{
+.right_caret {
     position: absolute;
     top: 40%;
     transform: translateY(-50%);

@@ -1,12 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Pacifico&display=swap');
-*{
+* {
     font-family: 'JetBrains Mono';
 }
-.form-control:focus{
+.form-control:focus {
     box-shadow: none !important;
 }
 
-.form-control:focus-visible{
+.form-control:focus-visible {
     box-shadow: none !important;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.epr-body::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.epr-body {
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
 }

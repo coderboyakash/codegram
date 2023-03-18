@@ -5,19 +5,19 @@ import Statuses from '../../components/Statuses/Statuses'
 import styles from './Home.module.css'
 
 const Home = () => {
-  return (
-    <div className={styles.home_wrapper}>
-        <Sidebar />
-        <main className={styles.posts_wrapper}>
-            <Statuses />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-        </main>
-    </div>
-  )
+    return (
+        <div className={styles.home_wrapper}>
+            <Sidebar />
+            <main className={styles.posts_wrapper}>
+                <Statuses />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+            </main>
+        </div>
+    )
 }
 
 export default Home

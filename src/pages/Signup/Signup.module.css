@@ -1,0 +1,15 @@
+.signup_wrapper {
+    width: 100% !important;
+}
+
+.signup_form_wrapper {
+    width: 350px;
+    margin: auto;
+    padding: 40px;
+    border: 1px solid #aaa;
+}
+
+.signup_form_wrapper h2 {
+    font-family: 'Pacifico', cursive;
+    margin-top: 20px !important;
+}

@@ -1,4 +1,4 @@
-.login_wrapper{
+.login_wrapper {
     display: flex !important;
     justify-content: center;
     align-items: center;
@@ -7,22 +7,21 @@
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 100px !important;
-    
 }
 
-.login_left_section{
+.login_left_section {
     height: 590px;
     display: flex;
     justify-content: flex-end;
 }
 
-.login_poster{
+.login_poster {
     background: url('https://static.cdninstagram.com/images/instagram/xig/homepage/phones/home-phones.png?__makehaste_cache_breaker=HOgRclNOosk');
     background-repeat: no-repeat;
     width: 450px;
 }
 
-.login_right_section{
+.login_right_section {
     display: flex;
     align-items: flex-start;
     height: 590px;
@@ -30,14 +29,14 @@
     flex-direction: column;
 }
 
-.login_left_section img{
+.login_left_section img {
     height: 540px;
     width: 250px;
     margin-top: 28px;
     margin-left: 158px;
 }
 
-.login_form{
+.login_form {
     height: 450px;
     width: 350px;
     border: 1px solid #aaa;
@@ -47,7 +46,7 @@
     border-radius: 3px;
 }
 
-.sign_up_section{
+.sign_up_section {
     width: 350px;
     height: 80px;
     border: 1px solid #aaa;
@@ -59,31 +58,31 @@
     border-radius: 3px;
 }
 
-.sign_up_section a{
+.sign_up_section a {
     text-decoration: none;
 }
 
-.login_form h2{
+.login_form h2 {
     font-family: 'Pacifico', cursive;
     margin: 50px 0px !important;
 }
 
-.login_form form{
+.login_form form {
     text-align: center;
 }
 
-.form_group{
+.form_group {
     position: relative;
 }
 
-.login_form input{
+.login_form input {
     width: 250px;
     margin-top: 10px;
     height: 50px;
     padding-top: 25px;
 }
 
-.login_form label{
+.login_form label {
     position: absolute;
     font-size: 12px;
     left: 15px;
@@ -91,19 +90,19 @@
     color: #aaa;
 }
 
-.submit_btn button{
+.submit_btn button {
     margin-top: 10px;
     width: 250px !important;
 }
 
-.divider{
+.divider {
     margin-top: 30px;
     width: 250px;
     position: relative;
     border-bottom: 1px solid #aaa;
 }
 
-.divider span{
+.divider span {
     position: absolute;
     top: -10px;
     padding: 0px 20px;
@@ -113,18 +112,18 @@
     color: #aaa;
 }
 
-.login_with_facebook{
+.login_with_facebook {
     color: rgb(0, 55, 107);
     margin-top: 20px;
     font-size: 15px;
 }
 
-.forgot_password{
+.forgot_password {
     margin-top: 20px;
     font-size: 12px;
 }
 
-.forgot_password a{
+.forgot_password a {
     text-decoration: none;
     color: rgb(0, 55, 107);
 }
