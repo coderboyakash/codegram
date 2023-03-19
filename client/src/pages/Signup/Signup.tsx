@@ -6,12 +6,33 @@ import { Link } from 'react-router-dom'
 import styles from './Signup.module.css'
 import { AiFillFacebook } from 'react-icons/ai'
 import { Button, Col, Row } from 'react-bootstrap'
-import { SignupIntialState } from './SignupFormReducer'
 import FormGroup from '../../components/FormGroup/FormGroup'
 
+type SignupState = {
+    name: string,
+    username: string,
+    password: string
+    emailOrMobile: string,
+}
+
+const SignupIntialState = {
+    name: '',
+    username: '',
+    password: '',
+    emailOrMobile: ''
+}
+
 const Signup: FC = () => {
-    const handleSignSubmit = async (e: any) => {
-        e.preventDefault()
+    const handleSignSubmit = async (data: SignupState) => {
+
+        const payload = {
+            name: data.name,
+            username: data.username,
+            password: data.password,
+            [validateEmail(data.emailOrMobile) ? 'email' : 'mobile']: data.emailOrMobile
+        }
+        const signupResponse = await axios.post('http://localhost:5000/api/v1/auth/signup', payload)
+        console.log(signupResponse)
     }
 
     const validateEmail = (email: string) => {
@@ -26,16 +47,14 @@ const Signup: FC = () => {
         return mobileRegex.test(mobile)
     }
 
-    const validationSchema = Yup.object({
+    const signupValidationSchema = Yup.object({
         emailOrMobile: Yup.string()
             .test(
                 'emailOrMobile',
                 'Email or Mobile is invalid!',
                 function (value: any) {
                     const isValidEmail = validateEmail(value)
-                    const isValidPhone = validateMobile(value)
-                    console.log(isValidEmail || isValidPhone);
-                    
+                    const isValidPhone = validateMobile(value)                    
                     if (!isValidEmail && !isValidPhone) {
                         return false
                     }
@@ -65,9 +84,9 @@ const Signup: FC = () => {
                             <span>OR</span>
                         </div>
                         <Formik
+                            onSubmit={handleSignSubmit}
                             initialValues={SignupIntialState}
-                            validationSchema={validationSchema}
-                            onSubmit={(values) => console.log(values)}
+                            validationSchema={signupValidationSchema}
                         >
                             {(formik) => (
                                 <Form onSubmit={formik.handleSubmit}>

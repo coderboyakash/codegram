@@ -21,7 +21,7 @@ app.use(
     })
 )
 
-app.use('/auth', AuthRouter);
+app.use('/api/v1/auth', AuthRouter);
 
 const httpServer = createServer(app)
 
