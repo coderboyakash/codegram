@@ -3,7 +3,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import { createServer } from 'http'
-import { DEVELOPMENT, PORT } from './utils/constants'
+import { DEVELOPMENT, MONGODB_URL, PORT } from './utils/constants'
 import AuthRouter from './routes/AuthRoutes'
 import mongoose from 'mongoose'
 const app = express()
@@ -28,7 +28,7 @@ const httpServer = createServer(app)
 main().catch(err => console.log(err));
 
 async function main() {
-	await mongoose.connect('mongodb+srv://coderboyakash:VYwlnVRKNceVxe8x@codegram.bk6jedd.mongodb.net/codegram')
+	await mongoose.connect(MONGODB_URL || '')
 }
 
 httpServer.listen(PORT, () => {
