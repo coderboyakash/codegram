@@ -3,7 +3,6 @@ import { Button, Col, Form, Row } from 'react-bootstrap'
 import styles from './Login.module.css'
 import { AiFillFacebook } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import FormGroup from '../../components/FormGroup/FormGroup'
 
 const Login: FC = () => {
 
@@ -15,7 +14,7 @@ const Login: FC = () => {
         <Row className={styles.login_wrapper}>
             <Col lg={6} md={6} sm={6} className={styles.login_left_section}>
                 <div className={styles.login_poster}>
-                    <img src="/assets/images/screenshot2.png" />
+                    <img src="/assets/images/screenshot2.png" alt="banner" />
                 </div>
             </Col>
             <Col lg={6} md={6} sm={6} className={styles.login_right_section}>
@@ -44,7 +43,7 @@ const Login: FC = () => {
                                 &nbsp;Login with facebook
                             </div>
                             <div className={styles.forgot_password}>
-                                <a href="">Forgot Password?</a>
+                                <a href="/">Forgot Password?</a>
                             </div>
                         </form>
                     </div>

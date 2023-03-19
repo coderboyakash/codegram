@@ -37,12 +37,14 @@ const Signup: FC = () => {
 
     const validateEmail = (email: string) => {
         const emailRegex = new RegExp(
+             // eslint-disable-next-line
             /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         )
         return emailRegex.test(email)
     }
 
     const validateMobile = (mobile: string) => {
+         // eslint-disable-next-line
         const mobileRegex = new RegExp(/^(\+\d{1,3}[- ]?)?\d{10}$/)
         return mobileRegex.test(mobile)
     }
@@ -118,7 +120,7 @@ const Signup: FC = () => {
                                     </p>
                                     <p className={styles.t_c}>
                                         By signing up, you agree to our
-                                        <a href="">
+                                        <a href="/">
                                             &nbsp;Terms, Privacy Policy and Cookies
                                             Policy.
                                         </a>
@@ -126,51 +128,6 @@ const Signup: FC = () => {
                                 </Form>
                             )}
                         </Formik>
-                        {/* <form onSubmit={handleSubmit(handleSignSubmit)}>
-                            <FormGroup
-                                labelText="Phone Number, username or email"
-                                type="text"
-                                name="email"
-                                value={state.email}
-                                action={userNameInputHandler}
-                            />
-                            <FormGroup
-                                labelText="Full Name"
-                                type="text"
-                                name="name"
-                                value={state.name}
-                                action={inputChangeHandler}
-                            />
-                            <FormGroup
-                                labelText="Username"
-                                type="text"
-                                name="username"
-                                value={state.username}
-                                action={inputChangeHandler}
-                            />
-                            <FormGroup
-                                labelText="Password"
-                                type="password"
-                                name="password"
-                                value={state.password}
-                                action={inputChangeHandler}
-                            />
-                            <Form.Group className={styles.submit_btn}>
-                                <Button type="submit">Sign up</Button>
-                            </Form.Group>
-                            <p className={styles.t_c}>
-                                People who use our service may have uploaded
-                                your contact information to Instagram.
-                                <a href="/">&nbsp;Learn more</a>
-                            </p>
-                            <p className={styles.t_c}>
-                                By signing up, you agree to our
-                                <a href="">
-                                    &nbsp;Terms, Privacy Policy and Cookies
-                                    Policy.
-                                </a>
-                            </p>
-                        </form> */}
                     </div>
                 </div>
                 <div className={styles.login_section}>
