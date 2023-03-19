@@ -1,33 +1,17 @@
-import React, { ChangeEvent, FC, FormEvent, useReducer } from 'react'
-import { Button, Col, Form, Row } from 'react-bootstrap'
+import { FC } from 'react'
 import axios from 'axios'
-import { AiFillFacebook } from 'react-icons/ai'
+import * as Yup from 'yup'
+import { Formik, Form } from 'formik'
 import { Link } from 'react-router-dom'
-import FormGroup from '../../components/FormGroup/FormGroup'
 import styles from './Signup.module.css'
-import SignupFormReducer, { SignupIntialState } from './SignupFormReducer'
-
-enum emailOrMobile {
-    MOBILE = 'mobile',
-    EMAIL = 'email',
-    NONE = 'none',
-}
+import { AiFillFacebook } from 'react-icons/ai'
+import { Button, Col, Row } from 'react-bootstrap'
+import { SignupIntialState } from './SignupFormReducer'
+import FormGroup from '../../components/FormGroup/FormGroup'
 
 const Signup: FC = () => {
-    const [state, dispatch] = useReducer(SignupFormReducer, SignupIntialState)
-
-    const handleSignSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    const handleSignSubmit = async (e: any) => {
         e.preventDefault()
-        const response = await axios.post('http://localhost:5000/auth/signup', state)
-        console.log(response.data.result);        
-    }
-
-    const inputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        dispatch({
-            type: 'UPDATE',
-            name: event.target.name,
-            payload: event.target.value,
-        })
     }
 
     const validateEmail = (email: string) => {
@@ -42,22 +26,27 @@ const Signup: FC = () => {
         return mobileRegex.test(mobile)
     }
 
-    const userNameInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        const isEmailValid = validateEmail(event.target.value)
-        const isMobileValid = validateMobile(event.target.value)
-        if (isEmailValid || isMobileValid) {
-            dispatch({
-                type: 'UPDATE_USERNAME',
-                name: event.target.name,
-                payload: event.target.value,
-                emailOrMobile: isEmailValid
-                    ? emailOrMobile.EMAIL
-                    : isMobileValid
-                    ? emailOrMobile.MOBILE
-                    : emailOrMobile.NONE,
-            })
-        }
-    }
+    const validationSchema = Yup.object({
+        emailOrMobile: Yup.string()
+            .test(
+                'emailOrMobile',
+                'Email or Mobile is invalid!',
+                function (value: any) {
+                    const isValidEmail = validateEmail(value)
+                    const isValidPhone = validateMobile(value)
+                    console.log(isValidEmail || isValidPhone);
+                    
+                    if (!isValidEmail && !isValidPhone) {
+                        return false
+                    }
+                    return true
+                }
+            )
+            .required('Email Or Mobile field is required'),
+        name: Yup.string().required('Name field is required'),
+        username: Yup.string().required('Username field is required'),
+        password: Yup.string().required('Password field is required'),
+    })
 
     return (
         <Row>
@@ -75,7 +64,50 @@ const Signup: FC = () => {
                         <div className={styles.divider}>
                             <span>OR</span>
                         </div>
-                        <form onSubmit={handleSignSubmit}>
+                        <Formik
+                            initialValues={SignupIntialState}
+                            validationSchema={validationSchema}
+                            onSubmit={(values) => console.log(values)}
+                        >
+                            {(formik) => (
+                                <Form onSubmit={formik.handleSubmit}>
+                                    <FormGroup
+                                        type="text"
+                                        name="emailOrMobile"
+                                        label="Email or Mobile number"
+                                    />
+                                    <FormGroup
+                                        type="name"
+                                        name="name"
+                                        label="Name"
+                                    />
+                                    <FormGroup
+                                        type="username"
+                                        name="username"
+                                        label="Username"
+                                    />
+                                    <FormGroup
+                                        type="password"
+                                        name="password"
+                                        label="Password"
+                                    />
+                                    <Button className={styles.submit_btn} type="submit">Sign up</Button>
+                                    <p className={styles.t_c}>
+                                        People who use our service may have uploaded
+                                        your contact information to Instagram.
+                                        <a href="/">&nbsp;Learn more</a>
+                                    </p>
+                                    <p className={styles.t_c}>
+                                        By signing up, you agree to our
+                                        <a href="">
+                                            &nbsp;Terms, Privacy Policy and Cookies
+                                            Policy.
+                                        </a>
+                                    </p>
+                                </Form>
+                            )}
+                        </Formik>
+                        {/* <form onSubmit={handleSubmit(handleSignSubmit)}>
                             <FormGroup
                                 labelText="Phone Number, username or email"
                                 type="text"
@@ -119,7 +151,7 @@ const Signup: FC = () => {
                                     Policy.
                                 </a>
                             </p>
-                        </form>
+                        </form> */}
                     </div>
                 </div>
                 <div className={styles.login_section}>

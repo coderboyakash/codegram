@@ -2,53 +2,65 @@ import { ChangeEvent, FC, useRef, useState } from 'react'
 import classNames from 'classnames'
 import { Form } from 'react-bootstrap'
 import styles from './FormGroup.module.css'
+import { ErrorMessage, useField } from 'formik'
 
 type FormGroupProps = {
     name: string
     type: string
-    labelText: string,
-    value: string,
-    action: Function
+    label: string,
 }
 
-const FormGroup: FC<FormGroupProps> = ({ name, type, labelText, value, action }) => {
+const FormGroup: FC<FormGroupProps> = ({ label, ...props }) => {
     const inputRef = useRef<HTMLInputElement>(null)
     const [focus, setFocus] = useState(false)
+    const [field, meta] = useField(props)
+    
     const toggleFocus = () => {
-        if (inputRef.current && inputRef.current.value === '') {
-            setFocus(!focus)
+        if (inputRef.current && inputRef.current.value !== '') {
+            setFocus(true)
         }
     }
 
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        action(event)
+    const handleBlur = () => {
+        if (inputRef.current && inputRef.current.value === '') {
+            setFocus(false)
+        }
+    }
+
+    const handleFocus = () => {
+        if (inputRef.current && inputRef.current.value === '') {
+            setFocus(true)
+        }
     }
 
     return (
-        <Form.Group
-            onFocus={toggleFocus}
-            onBlur={toggleFocus}
-            className={styles.form_group}
-        >
-            <label
-                className={!focus ? styles.label : styles.label_focus}
-                htmlFor={name}
+        <>
+            <Form.Group
+                onKeyUp={toggleFocus}
+                onBlur={handleBlur}
+                onFocus={handleFocus}
+                className={styles.form_group}
             >
-                {labelText ? labelText : name.toUpperCase()}
-            </label>
-            <input
-                ref={inputRef}
-                type={type ? type : 'text'}
-                id={name}
-                name={name}
-                className={classNames(
-                    'form-control',
-                    !focus ? styles.input : styles.input_focus
-                )}
-                defaultValue={value}
-                onChange={handleInputChange}
-            />
-        </Form.Group>
+                <label
+                    className={classNames(!focus ? styles.label : styles.label_focus)}
+                    htmlFor={label}
+                >
+                    {label}
+                </label>
+                <input
+                    {...props}
+                    {...field}
+                    ref={inputRef}
+                    className={classNames(
+                        'form-control',
+                        !focus ? styles.input : styles.input_focus,
+                        meta.error && meta.touched ? 'is-invalid' : ''
+                    )}
+                    autoComplete="off"
+                />
+            </Form.Group>
+            <ErrorMessage component={'p'} name={field.name} className={styles.error_text} />
+        </>
     )
 }
 

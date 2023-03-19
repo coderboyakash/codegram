@@ -22,11 +22,10 @@ type Action = {
 
 export const SignupIntialState = {
     name: '',
-    email: '',
-    mobile: '',
     username: '',
     password: '',
-    emailOrMobile: emailOrMobile.NONE
+    emailOrMobile: '',
+    // emailOrMobile: emailOrMobile.NONE
 
 }
 
