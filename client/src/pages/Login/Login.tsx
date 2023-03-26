@@ -22,16 +22,6 @@ const Login: FC = () => {
                     <div className={styles.login_form}>
                         <h2>CodeGram!!</h2>
                         <form onSubmit={handleLogin}>
-                            {/* <FormGroup
-                                labelText="Phone Number, username or email"
-                                type="text"
-                                name="email"
-                            />
-                            <FormGroup
-                                labelText="Password"
-                                type="password"
-                                name="password"
-                            /> */}
                             <Form.Group className={styles.submit_btn}>
                                 <Button>Log in</Button>
                             </Form.Group>

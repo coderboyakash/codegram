@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import axios from 'axios'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 import { Link } from 'react-router-dom'
@@ -7,44 +6,46 @@ import styles from './Signup.module.css'
 import { AiFillFacebook } from 'react-icons/ai'
 import { Button, Col, Row } from 'react-bootstrap'
 import FormGroup from '../../components/FormGroup/FormGroup'
-
-type SignupState = {
-    name: string,
-    username: string,
-    password: string
-    emailOrMobile: string,
-}
+import { useSignupMutation } from '../../store/Auth/AuthApiSlice'
+import { setAuth } from '../../store/Auth/AuthSlice'
+import { useDispatch } from 'react-redux'
+import { SignupState } from './types'
 
 const SignupIntialState = {
     name: '',
     username: '',
     password: '',
-    emailOrMobile: ''
+    emailOrMobile: '',
 }
 
 const Signup: FC = () => {
+    const [signup] = useSignupMutation()
+    const dispatch = useDispatch()
     const handleSignSubmit = async (data: SignupState) => {
-
         const payload = {
             name: data.name,
             username: data.username,
             password: data.password,
-            [validateEmail(data.emailOrMobile) ? 'email' : 'mobile']: data.emailOrMobile
+            [validateEmail(data.emailOrMobile) ? 'email' : 'mobile']:
+                data.emailOrMobile,
         }
-        const signupResponse = await axios.post('http://localhost:5000/api/v1/auth/signup', payload)
-        console.log(signupResponse)
+        signup(payload).unwrap().then((data) => {
+            if(data.success){
+                dispatch(setAuth(data?.result))
+            }
+        })
     }
 
     const validateEmail = (email: string) => {
         const emailRegex = new RegExp(
-             // eslint-disable-next-line
+            // eslint-disable-next-line
             /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         )
         return emailRegex.test(email)
     }
 
     const validateMobile = (mobile: string) => {
-         // eslint-disable-next-line
+        // eslint-disable-next-line
         const mobileRegex = new RegExp(/^(\+\d{1,3}[- ]?)?\d{10}$/)
         return mobileRegex.test(mobile)
     }
@@ -56,7 +57,7 @@ const Signup: FC = () => {
                 'Email or Mobile is invalid!',
                 function (value: any) {
                     const isValidEmail = validateEmail(value)
-                    const isValidPhone = validateMobile(value)                    
+                    const isValidPhone = validateMobile(value)
                     if (!isValidEmail && !isValidPhone) {
                         return false
                     }
@@ -66,7 +67,7 @@ const Signup: FC = () => {
             .required('Email Or Mobile field is required'),
         name: Yup.string().required('Name field is required'),
         username: Yup.string().required('Username field is required'),
-        password: Yup.string().required('Password field is required'),
+        password: Yup.string().min(8).required('Password field is required'),
     })
 
     return (
@@ -112,17 +113,23 @@ const Signup: FC = () => {
                                         name="password"
                                         label="Password"
                                     />
-                                    <Button className={styles.submit_btn} type="submit">Sign up</Button>
+                                    <Button
+                                        className={styles.submit_btn}
+                                        type="submit"
+                                    >
+                                        Sign up
+                                    </Button>
                                     <p className={styles.t_c}>
-                                        People who use our service may have uploaded
-                                        your contact information to Instagram.
+                                        People who use our service may have
+                                        uploaded your contact information to
+                                        Instagram.
                                         <a href="/">&nbsp;Learn more</a>
                                     </p>
                                     <p className={styles.t_c}>
                                         By signing up, you agree to our
                                         <a href="/">
-                                            &nbsp;Terms, Privacy Policy and Cookies
-                                            Policy.
+                                            &nbsp;Terms, Privacy Policy and
+                                            Cookies Policy.
                                         </a>
                                     </p>
                                 </Form>
